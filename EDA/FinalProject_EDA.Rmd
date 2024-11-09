@@ -1,0 +1,49 @@
+---
+title: "FinalProject_EDA"
+author: "Joshua Chadwick"
+date: "2024-11-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+```
+
+# Exploring our Social Media Survey Data
+```{r}
+data <- read.csv("../inputs/train.csv")
+data <- data %>%
+  drop_na() # Removing the blank lines in the data.
+```
+
+### Transforming our Categorical Data into Numerical Data
+----------------
+We will be using "One-Hot Encoding" for this transformation which separates categorical data into its own columns and gives a binary classification (yes or no) for each row.
+
+**Mutating the Gender variable**:
+```{r}
+data <- data %>%
+  mutate(dummy = 1) %>%
+  pivot_wider(names_from = Gender, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0.
+```
+
+**Mutating the Platform variable**:
+```{r}
+data <- data %>%
+  mutate(dummy = 1) %>%
+  pivot_wider(names_from = Platform, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0.
+```
+
+**Mutating the Dominant_Emotion variable**:
+```{r}
+data <- data %>%
+  mutate(dummy = 1) %>%
+  pivot_wider(names_from = Dominant_Emotion, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0.
+```
+
+### Export our cleaned and processed data
+```{r}
+write.csv(data, "cleaned_train.csv", row.names=FALSE)
+```
