@@ -1,0 +1,5 @@
+"0","retained_pcs <- pca_result$x[, 1:9] # Keep components 1 - 9"
+"0","# Keeping PCs 1 through 9 accounts for 96.76% of the variance which is ideal."
+"0",""
+"0","# This resulting DataFrame will have standardized data (with classifiers already being 0 or 1) and exclude the User ID, along with principle components that are not necessary, to remove irrelevant data that can mess with the Euclidean Distance weighting."
+"0","result <- cbind(retained_pcs, data[, c(""Happiness"", ""Anger"", ""Neutral"", ""Anxiety"", ""Boredom"", ""Sadness"")])"
