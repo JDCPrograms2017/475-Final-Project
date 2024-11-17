@@ -29,16 +29,17 @@ async function sendData() {
     // use a try-catch to handle unexpected errors in the communication with the backend
     try {
         // send the data to the back end
+        // we need to tell the server that were sending json formatted data
         const response = await fetch("/processUserInput", {
             method: "POST",
-            headers: { // we need to tell the server that were sending json formatted data
+            headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(userInput)
+            body: JSON.stringify(userInput),
         })
         // display the response
         const responseData = await response.json()
-        document.getElementById("output").innerText = Json.stringify(responseData, null, 2)
+        document.getElementById("output").innerText = JSON.stringify(responseData, null, 2)
     } catch (e) {
         // display an error message
         errorMessage = "Error with communication from the back end." + e.message
