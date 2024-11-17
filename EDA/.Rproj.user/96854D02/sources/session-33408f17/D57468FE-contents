@@ -45,5 +45,5 @@ data <- data %>%
 
 ### Export our cleaned and processed data
 ```{r}
-write.csv(result, "cleaned_train.csv", row.names=FALSE)
+write.csv(data, "cleaned_train.csv", row.names=FALSE)
 ```
