@@ -43,6 +43,12 @@ data <- data %>%
   pivot_wider(names_from = Dominant_Emotion, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0.
 ```
 
+**Remove the User_ID column**:
+It's irrelevant to our training.
+```{r}
+data <- select(data, -User_ID)
+```
+
 ### Export our cleaned and processed data
 ```{r}
 write.csv(data, "cleaned_train.csv", row.names=FALSE)
