@@ -43,17 +43,6 @@ data <- data %>%
   pivot_wider(names_from = Dominant_Emotion, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0.
 ```
 
-### Performing Standardization of our Data
---------
-```{r}
-data_features <- data[, !names(data) %in% c("User_ID", "Happiness", "Anger", "Neutral", "Anxiety", "Boredom", "Sadness")] # Not going to standardize the target columns or User_ID
-
-standardized_data <- as.data.frame(scale(data_features))
-
-# This resulting DataFrame will have standardized data (with classifiers already being 0 or 1) and exclude the User ID, along with principle components that are not necessary, to remove irrelevant data that can mess with the Euclidean Distance weighting.
-result <- cbind(standardized_data, data[, c("Happiness", "Anger", "Neutral", "Anxiety", "Boredom", "Sadness")])
-```
-
 ### Export our cleaned and processed data
 ```{r}
 write.csv(result, "cleaned_train.csv", row.names=FALSE)
