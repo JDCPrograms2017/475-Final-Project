@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>475 Final Project</title>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>Welcome to our project</h1>
+
+    <!-- get input from the user -->
+    <form id="userInput">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required /><br><br>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="non-binary">Non-Binary</option>
+        </select><br><br>
+
+        <label for="socialMedia">Primary Social Media Platform:</label>
+        <select id="socialMedia" name="socialMedia" required>
+            <option value="">Select Platform</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">Twitter</option>
+            <option value="facebook">Facebook</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="whatsapp">Whatsapp</option>
+            <option value="telegram">Telegram</option>
+            <option value="snapchat">Snapchat</option>
+        </select><br><br>
+
+        <label for="daily-usage">Daily Usage in Minutes:</label>
+        <input type="number" id="daily-usage" name="daily-usage" min="0" required /><br><br>
+        
+        <label for="postsPerDay">Posts Per Day:</label>
+        <input type="number" id="postsPerDay" name="postsPerDay" min="0" required /><br><br>
+
+        <label for="likesReceivedPerDay">Likes Received Per Day:</label>
+        <input type="number" id="likesReceivedPerDay" name="likesReceivedPerDay" min="0" required /><br><br>
+
+        <label for="commentsReceivedPerDay">Comments Received Per Day:</label>
+        <input type="number" id="commentsReceivedPerDay" name="commentsReceivedPerDay" min="0" required /><br><br>
+
+        <label for="messagesSentPerDay">Messages Sent Per Day:</label>
+        <input type="number" id="messagesSentPerDay" name="messagesSentPerDay" min="0" required /><br><br>
+
+        <button onclick="sendData()">Send</button>
+    </form>
+
+    <!-- display the result -->
+    <p>Result: <span id="output"></span></p>
+</body>
+</html>
