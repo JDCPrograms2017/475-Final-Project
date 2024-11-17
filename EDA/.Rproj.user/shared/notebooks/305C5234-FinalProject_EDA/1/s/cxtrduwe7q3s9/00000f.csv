@@ -1,3 +1,0 @@
-"0","data <- data %>%"
-"0","  mutate(dummy = 1) %>%"
-"0","  pivot_wider(names_from = Dominant_Emotion, values_from = dummy, values_fill = 0) # Fill spaces without the given gender category with 0."

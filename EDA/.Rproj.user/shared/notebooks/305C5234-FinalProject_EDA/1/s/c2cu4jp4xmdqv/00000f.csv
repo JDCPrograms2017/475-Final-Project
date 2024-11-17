@@ -1,3 +1,0 @@
-"0","data <- read.csv(""../inputs/train.csv"")"
-"0","data <- data %>%"
-"0","  drop_na() # Removing the blank lines in the data."
