@@ -29,7 +29,7 @@ def processUserInput():
     }
 
     # call the ML model with the data
-    prediction = "call model here(userInputDict)"
+    prediction = sm.make_predictions(userInputDict)
 
     # get the predicted output from the model
     #prediction = "this is a placeholder for our prediction"
