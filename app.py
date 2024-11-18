@@ -16,22 +16,23 @@ def processUserInput():
     # get the data from the front end
     userInput = request.get_json()
 
-    # deconstruct the json to get each field
-    age = userInput.get("age")
-    gender = userInput.get("gender")
-    socialMedia = userInput.get("socialMedia")
-    dailyUsage = userInput.get("dailyUsage")
-    postsPerDay = userInput.get("postsPerDay")
-    likesReceivedPerDay = userInput.get("likesReceivedPerDay")
-    commentsReceivedPerDay = userInput.get("commentsReceivedPerDay")
-    messagesSentPerDay = userInput.get("messagesSentPerDay")
+    # deconstruct the json to get each field and format it into a dictionary to send to the model
+    userInputDict = {
+        "age": userInput.get("age"),
+        "gender": userInput.get("gender"),
+        "socialMedia": userInput.get("socialMedia"),
+        "dailyUsage": userInput.get("dailyUsage"),
+        "postsPerDay": userInput.get("postsPerDay"),
+        "likesReceivedPerDay": userInput.get("likesReceivedPerDay"),
+        "commentsReceivedPerDay": userInput.get("commentsReceivedPerDay"),
+        "messagesSentPerDay": userInput.get("messagesSentPerDay")
+    }
 
-    # send it to our ML model
+    # call the ML model with the data
+    prediction = "call model here(userInputDict)"
 
     # get the predicted output from the model
-    prediction = {
-        "output": "this is a placeholder for our prediction",
-    }
+    #prediction = "this is a placeholder for our prediction"
 
     # send the output back to the front end
     return jsonify(prediction)
