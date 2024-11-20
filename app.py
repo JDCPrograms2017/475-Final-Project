@@ -18,14 +18,14 @@ def processUserInput():
 
     # deconstruct the json to get each field and format it into a dictionary to send to the model
     userInputDict = {
-        "age": userInput.get("age"),
+        "Age": userInput.get("age"),
+        "Daily_Usage_Time..minutes.": userInput.get("dailyUsage"),
+        "Posts_Per_Day": userInput.get("postsPerDay"),
+        "Likes_Received_Per_Day": userInput.get("likesReceivedPerDay"),
+        "Comments_Received_Per_Day": userInput.get("commentsReceivedPerDay"),
+        "Messages_Sent_Per_Day": userInput.get("messagesSentPerDay"),
         "gender": userInput.get("gender"),
-        "socialMedia": userInput.get("socialMedia"),
-        "dailyUsage": userInput.get("dailyUsage"),
-        "postsPerDay": userInput.get("postsPerDay"),
-        "likesReceivedPerDay": userInput.get("likesReceivedPerDay"),
-        "commentsReceivedPerDay": userInput.get("commentsReceivedPerDay"),
-        "messagesSentPerDay": userInput.get("messagesSentPerDay")
+        "socialMedia": userInput.get("socialMedia")
     }
 
     # call the ML model with the data
