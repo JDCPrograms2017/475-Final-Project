@@ -39,10 +39,19 @@ async function sendData() {
         })
         // display the response
         const responseData = await response.json()
-        document.getElementById("output").innerText = JSON.stringify(responseData, null, 2)
+        //const parsedResponse = JSON.parse(responseData)
+        console.log(responseData)
+        var result = ""
+        for (const key in responseData) {
+            if (responseData[key] === 1) {
+                result = key
+            }
+        }
+        
+        document.getElementById("output").innerText = result
     } catch (e) {
         // display an error message
-        errorMessage = "Error with communication from the back end." + e.message
+        errorMessage = "Error with communication from the back end: " + e.message
         document.getElementById("output").innerText = errorMessage
     }
 }

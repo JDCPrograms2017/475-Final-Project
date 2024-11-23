@@ -29,10 +29,8 @@ def processUserInput():
     }
 
     # call the ML model with the data
+    # and get the predicted output from the model
     prediction = sm.make_predictions(userInputDict)
-
-    # get the predicted output from the model
-    #prediction = "this is a placeholder for our prediction"
 
     # send the output back to the front end
     return jsonify(prediction)
