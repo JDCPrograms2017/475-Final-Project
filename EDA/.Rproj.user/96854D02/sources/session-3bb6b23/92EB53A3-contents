@@ -82,7 +82,12 @@ anxiety_to_age_mapping <- data %>%
 anxiety_to_age_mapping %>%
   slice(1:10) %>% # Getting the top 10 results
   ggplot(aes(x = reorder(Age, anxiety_count), y = anxiety_count)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_bar(stat = "identity", fill = "black") +
+  theme_minimal() +                                        # Base theme
+  theme(
+    panel.background = element_rect(fill = "#E2DFD2", color = NA),  # Plot area background
+    plot.background = element_rect(fill = "#E2DFD2", color = NA)    # Entire plot background
+  ) +
   geom_text(aes(label = anxiety_count), vjust = -0.2) +
   labs(title = "Top 10 Age Groups with Highest Number of Anxious Users",
        x = "Age",
