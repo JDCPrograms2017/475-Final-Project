@@ -1,0 +1,5 @@
+"0","age_group_counts <- data %>%"
+"0","  group_by(Age) %>%"
+"0","  summarise(num_entries = n())"
+"0",""
+"0","print(age_group_counts)"
