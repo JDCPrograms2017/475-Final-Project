@@ -3,7 +3,7 @@
     "path": "~/Desktop/Fall 2024/CS 475/FinalProject/EDA/FinalProject_EDA.Rmd",
     "project_path": "FinalProject_EDA.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "623895986",
     "contents": "",
     "dirty": false,
     "created": 1731805278001.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "100,29",
-        "scrollLine": "95",
+        "cursorPosition": "97,57",
+        "scrollLine": "82",
         "last_setup_crc32": "3bb6b23ef17200c"
     },
     "folds": "",
-    "lastKnownWriteTime": 1732949884,
+    "lastKnownWriteTime": 1733120925,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1732949884232,
+    "last_content_update": 1733120925161,
     "read_only": false,
     "read_only_alternatives": []
 }

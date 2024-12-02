@@ -79,19 +79,25 @@ anxiety_to_age_mapping <- data %>%
   summarise(anxiety_count = n()) %>% # Sum up the rows that are happy.
   arrange(desc(anxiety_count))
 
+anxiety_to_age_mapping <- anxiety_to_age_mapping %>%
+  left_join(age_group_counts, by = "Age") %>%
+  mutate(percentage = (anxiety_count / num_entries) * 100) %>% # Percentage of each age group
+  mutate(percentage = round(percentage, 1)) %>%
+  arrange(desc(percentage))
+
 anxiety_to_age_mapping %>%
   slice(1:10) %>% # Getting the top 10 results
-  ggplot(aes(x = reorder(Age, anxiety_count), y = anxiety_count)) +
+  ggplot(aes(x = reorder(Age, percentage), y = percentage)) +
   geom_bar(stat = "identity", fill = "black") +
   theme_minimal() +                                        # Base theme
   theme(
     panel.background = element_rect(fill = "#E2DFD2", color = NA),  # Plot area background
     plot.background = element_rect(fill = "#E2DFD2", color = NA)    # Entire plot background
   ) +
-  geom_text(aes(label = anxiety_count), vjust = -0.2) +
-  labs(title = "Top 10 Age Groups with Highest Number of Anxious Users",
+  geom_text(aes(label = paste0(percentage, "%")), vjust = -0.2) +
+  labs(title = "Top 10 Age Groups with Highest Percentage of Anxious Users",
        x = "Age",
-       y = "Anxious Count")
+       y = "Percentage of Total In Group")
 ```
 
 ### Finding the ratio of each observed level
@@ -112,4 +118,27 @@ category_percentages <- category_percentages %>%
   mutate(anxious_percentage = anxiety_count / total_entries)
 
 print(category_percentages)
+```
+
+### Analyzing More Features
+-------------
+```{r}
+refactored_data <- data %>%
+  mutate(Gender = case_when(
+    Male == 1 ~ "Male",
+    Female == 1 ~ "Female",
+    `Non-binary` == 1 ~ "Non-binary"
+  ))
+
+ggplot(refactored_data, aes(x = Gender, y = Daily_Usage_Time..minutes., fill = factor(Anxiety))) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("0" = "lightgreen", "1" = "#f26363"), 
+                    labels = c("No Anxiety", "Anxiety")) +
+  labs(title = "Social Media Usage by Gender and Anxiety Status",
+       x = "Gender", y = "Time Spent Per Day (Minutes)", fill = "Anxiety") +
+  theme_classic() +
+  theme(
+    panel.background = element_rect(fill = "#E2DFD2", color = NA),  # Plot area background
+    plot.background = element_rect(fill = "#E2DFD2", color = NA)    # Entire plot background
+  )
 ```
